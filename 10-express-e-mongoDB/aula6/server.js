@@ -81,6 +81,3 @@ app.on('pronto', () => {
         console.table('Servidor executando na porta 8080');
     });
 });
-
-
-console.log('test32e')
