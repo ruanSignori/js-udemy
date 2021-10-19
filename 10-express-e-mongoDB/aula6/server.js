@@ -27,14 +27,13 @@ const routes = require('./routes');
 const path = require('path');
 
 //recomendação de uso do Express, para uma melhor segurança na aplicação
-const helmet = require('helmet');
 
 //Recurso para impedir que outros sites ou aplicativos externos criem formulários/ BOTS.
 const csrf = require('csurf');
 
 const { middlewareGlobal, checkCSRFerror, csrfMiddleware } = require('./src/middlewares/middleware');
 
-app.use(helmet());
+
 
 app.use(
     express.urlencoded(
@@ -76,8 +75,8 @@ app.use(csrfMiddleware);
 app.use(routes);
 
 app.on('pronto', () => {
-    app.listen(8080, () => {
-        console.table('Acessar http://localhost:8080');
-        console.table('Servidor executando na porta 8080');
+    app.listen(3000, () => {
+        console.table('Acessar http://localhost:3000');
+        console.table('Servidor executando na porta 3000');
     });
 });
