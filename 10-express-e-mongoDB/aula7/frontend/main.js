@@ -9,5 +9,7 @@ const cadastro = new Login('.form-cadastro');
 login.init();
 cadastro.init();
 
+console.log('opaaa');
+
 // import './assets/css/style.css';
 
