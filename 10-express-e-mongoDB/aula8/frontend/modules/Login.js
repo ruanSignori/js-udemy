@@ -25,9 +25,6 @@ export default class Login {
         const emailInput = el.querySelector('input[name="email"]');
         const passwordInput = el.querySelector('input[name="password"]');
 
-        const div_Error = document.createElement('div');
-        div_Error.classList.add('alert-danger');
-
         if (!validator.isEmail(emailInput.value)) {
             this.errors.push('E-mail inválido.')
             //emailInput.insertAdjacentElement('afterend', div_Error)
@@ -38,9 +35,8 @@ export default class Login {
         }
 
         if (passwordInput.value.length < 3 ||  passwordInput.value.length > 45) {
-            this.errors.push('senha muito curta fela');
-            //passwordInput.insertAdjacentElement('afterend', div_Error);
-            console.log(this.errors[-1])
+            this.errors.push('Senha muito curta fela');
+            this.messages(this.errors[-1])
 
         } else {
             this.errors = []
@@ -50,9 +46,16 @@ export default class Login {
         
     }
 
-    /*messages() {
-        
-        const p = div_Error.appendChild('p');
-        return p = this.errors.value;
-    }*/
+    messages(msg) {
+        const div_Error = document.createElement('div');
+        const p_error = document.createElement('p')
+        const divFather = document.querySelector('.my-3')
+        div_Error.classList.add('alert-danger');
+        div_Error.classList.add('alert')
+        div_Error.appendChild(p_error);
+        div_Error.style.marginTop = '20px';
+        p_error.innerHTML = msg;
+
+        divFather.appendChild(div_Error);
+    }
 }
