@@ -1,9 +1,9 @@
 
 import validator from 'validator';
 
+
 export default class Login {
-    constructor(formClass ) {
-        this.error_message = document.querySelector('.error-message');
+    constructor(formClass) {
         this.form = document.querySelector(formClass);
         this.errors = [];
     }
@@ -25,16 +25,22 @@ export default class Login {
         const emailInput = el.querySelector('input[name="email"]');
         const passwordInput = el.querySelector('input[name="password"]');
 
-        if (!validator.isEmail(emailInput.value)) {
+        const div_Error = document.createElement('div');
+        div_Error.classList.add('alert-danger');
 
-            this.errors.push(1)
+        if (!validator.isEmail(emailInput.value)) {
+            this.errors.push('E-mail inválido.')
+            //emailInput.insertAdjacentElement('afterend', div_Error)
+            console.log(this.errors)
+        
         } else {
             this.errors = []
         }
 
         if (passwordInput.value.length < 3 ||  passwordInput.value.length > 45) {
-            passwordInput.insertAdjacentElement('beforeend', this.error_message)
-            this.errors.push(1);
+            this.errors.push('senha muito curta fela');
+            //passwordInput.insertAdjacentElement('afterend', div_Error);
+            console.log(this.errors[-1])
 
         } else {
             this.errors = []
@@ -43,4 +49,10 @@ export default class Login {
         if (this.errors.length === 0) el.submit();
         
     }
+
+    /*messages() {
+        
+        const p = div_Error.appendChild('p');
+        return p = this.errors.value;
+    }*/
 }

@@ -1,0 +1,7 @@
+.message-error-f {
+    max-width: 500px;
+    height: 350px;
+    background-color: #ce6363;
+    border-radius: 1.25em;
+    border: 2px solid #ff6347;
+}

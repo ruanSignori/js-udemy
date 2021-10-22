@@ -61,7 +61,7 @@ class Login {
 
     // A senha precisa ter entre 3 e 50
     if(this.body.password.length < 3 || this.body.password.length > 50) {
-      this.errors.push('A senha precisa ter entre 3 e 50 caracteres.');
+      this.errors.push('A senha precisa ter entre 3 e 45 caracteres.');
     }
   }
 
