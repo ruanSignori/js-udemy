@@ -12,26 +12,26 @@
       <%- include('includes/messages') %>
 
       <% if(contato._id) { %>
-      <form action="/contato/edit/<%= contato._id %>" method="POST">
+      <form action="/contato/edit/<%= contato._id %>" method="POST" class="form-agenda">
       <% } else { %>
-      <form action="/contato/register" method="POST">
+      <form action="/contato/register" method="POST" class="form-agenda">
       <% } %>
         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
         <div class="form-group">
           <label>Nome</label>
-          <input value="<%= contato.nome %>" type="text" class="form-control" name="nome">
+          <input value="<%= contato.nome %>" type="text" class="form-control" name="nome" maxlength="120" pattern="[^0-9]+" placeholder="Somente letras ou símbolos">
         </div>
         <div class="form-group">
           <label>Sobrenome</label>
-          <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome">
+          <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome" maxlength="100" pattern="[^0-9]+" placeholder="Somente letras ou símbolos">
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input value="<%= contato.email %>" type="email" class="form-control" name="email">
+          <input value="<%= contato.email %>" type="email" class="form-control" name="email" maxlength="100">
         </div>
         <div class="form-group">
           <label>Telefone</label>
-          <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone">
+          <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone" maxlength="13">
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

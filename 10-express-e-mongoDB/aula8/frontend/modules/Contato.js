@@ -1,15 +1,13 @@
-
 import validator from 'validator';
 
-
-export default class Login {
+export default class Contato {
     constructor(formClass) {
         this.form = document.querySelector(formClass);
         this.errors = [];
     }
 
     init() {
-        this.events();
+        this.events()
     }
 
     events() {
@@ -21,29 +19,24 @@ export default class Login {
     }
 
     validate(e) {
-        const el = e.target;
-        const emailInput = el.querySelector('input[name="email"]');
-        const passwordInput = el.querySelector('input[name="password"]');
+        const el = e.target
+        const allInputs = el.querySelectorAll('input.form-control');
+        
+        if (!allInputs) return this.errors.push(1);
 
-        if (!validator.isEmail(emailInput.value)) {
+        const inputEMail = allInputs[2].value;
+
+        if (!validator.isEmail(inputEMail)) {
             this.errors.push('E-mail inválido.');
             this.messages(this.errors[-1]);
-            //emailInput.insertAdjacentElement('afterend', div_Error)
-        
-        } else {
-            this.errors = [];
         }
 
-        if (passwordInput.value.length < 3 ||  passwordInput.value.length > 45) {
-            this.errors.push('Senha muito curta fela');
-            this.messages(this.errors[-1]);
+        const inputTel = allInputs[-1];
 
-        } else {
-            this.errors = [];
-        }
+        inputTel.length > 13 ? this.errors.push('Número de telefone inválido'): this.errors = [];
+
 
         if (this.errors.length === 0) el.submit();
-        
     }
 
     messages(msg) {
