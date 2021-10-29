@@ -1,4 +1,4 @@
-import validator from 'validator';
+/*import validator from 'validator';
 
 export default class Contato {
     constructor(formClass) {
@@ -51,4 +51,4 @@ export default class Contato {
 
         divFather.appendChild(div_Error);
     }
-}
+}*/

@@ -1,7 +1,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import Login from './modules/Login';
-import Contato from './modules/Contato';
+/*import Contato from './modules/Contato';*/
 
 //Login e cadastro
 const login = new Login('.form-login');
@@ -11,7 +11,7 @@ login.init();
 cadastro.init();
 
 //Criação de contato
-const contato = new Contato('.form-agenda');
-contato.init();
+/*const contato = new Contato('.form-agenda');
+contato.init();*/
 
 
