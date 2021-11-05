@@ -1,6 +1,6 @@
 ---------------------Deploy sem um dominio usando VirtualBox--------------------------
 
-#Criação de um server no ubuntu passo a passo.
+# Criação de um server no ubuntu passo a passo.
 
 Colocar a maquina virtual com a rede em modo Bridge
 
@@ -78,7 +78,7 @@ Your Hardware Enablement Stack (HWE) is supported until April 2025.
 Last login: Wed Nov  3 06:10:20 2021 from 10.0.0.102
 ########################################################################################
 
-se aparecer isso ai encima, então voce está conectado na máquina virtual, se não, verificar o nome da public key e a chave ssh se está correta.
+# Se aparecer isso ai encima, então voce está conectado na máquina virtual, se não, verificar o nome da public key e a chave ssh se está correta.
 
 
 
