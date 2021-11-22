@@ -65,7 +65,7 @@ sudo systemctl restart ssh
 //Terminal SO
 ssh ip_da_maquina_virtual
 
-########################################################################################
+######################################################################################## <br>
 Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-38-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -78,7 +78,7 @@ Your Hardware Enablement Stack (HWE) is supported until April 2025.
 Last login: Wed Nov  3 06:10:20 2021 from 10.0.0.102
 ########################################################################################
 
-# Se aparecer isso ai encima, então voce está conectado na máquina virtual, se não, verificar o nome da public key e a chave ssh se está correta.
+Se aparecer isso ai encima, então voce está conectado na máquina virtual, se não, verificar o nome da public key e a chave ssh se está correta.
 
 
 
