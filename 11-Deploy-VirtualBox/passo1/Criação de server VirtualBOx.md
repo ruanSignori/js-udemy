@@ -81,16 +81,7 @@ Last login: Wed Nov  3 06:10:20 2021 from 10.0.0.102
 # Se aparecer isso ai encima, então voce está conectado na máquina virtual, se não, verificar o nome da public key e a chave ssh se está correta.
 
 
-
-
-
-
-
-
-
-
-
-
+# Em caso de erro mesmo verificando a public key, assistir esser vídeo https://www.youtube.com/watch?v=Wm9N6SpAsqA
 
 
 

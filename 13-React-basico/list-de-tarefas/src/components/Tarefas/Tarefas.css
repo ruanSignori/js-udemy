@@ -1,0 +1,71 @@
+.tarefas {
+  margin-top: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+.tarefas li {
+  min-height: 40px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  word-break: break-word;
+  background: #fff;
+  border-radius: 10px;
+  animation: scaling 0.3s;
+}
+
+.tarefas li div {
+  display: flex;
+  align-items: center;
+}
+
+.tarefas li .buttons-tarefas {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+
+li .ident-tarefa {
+  width: 5px;
+  background: #6610f2;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  flex: none;
+}
+
+
+.tarefas li .edit {
+  margin: 0 10px;
+}
+
+.tarefa-value {
+  padding: 15px;
+  width: 89%;
+}
+
+.tarefa-items {
+  width: 17%;
+  padding: 5px;
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(0)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes reverse-scaling {
+  100% {
+    transform: scale(0)
+  }
+}
