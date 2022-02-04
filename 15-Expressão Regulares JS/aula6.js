@@ -1,13 +1,15 @@
 const { cpfs, ips } = require('./base');
 
-// regExp CPF1 = /[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}/g
-
-/* const getAllCPF = cpfs.match(/(\d{3}\.){2}\d{3}-\d{2}/g);
+const getAllCPF = cpfs.match(/(\d{3}\.){2}\d{3}-\d{2}/g);
 console.log(getAllCPF);
- */
 
 
-const getAllIPS = ips.match(/\d+\./g);
 
-console.log(ips.match(/\d\S+/g))
-console.log(getAllIPS);
+/* for (let i = 0; i < 300; i ++) {
+  const ip = `${i}.${i}.${i}.${i}`;
+
+  console.log(ip.match(/((25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)(\.)){3}(25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)/g));
+} */
+
+
+console.log(ips.match(/((25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)(\.)){3}(25[0-5]|2[0-4][0-9]|1\d{2}|[1-9]\d|\d)/g));
