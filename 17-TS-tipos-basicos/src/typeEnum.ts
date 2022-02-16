@@ -7,3 +7,9 @@ enum Colors {
 
 console.log(Colors[200]);
 console.log(Colors.RED);
+
+export function chooseColor(cor: Colors): void {
+  console.log(Colors[cor]);
+}
+
+chooseColor(55);

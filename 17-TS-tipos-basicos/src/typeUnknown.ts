@@ -1,7 +1,7 @@
 //Tipo Any só que mais seguro, é o pai da hierarquia de tipos
 //Você precisa checar o tipo antes de fazer qualquer operação com a variável, assim como o exemplo abaxio
 
-let x: unknown;
+export let x: unknown;
 x = 100;
 x = 'Luan';
 x = 900;
