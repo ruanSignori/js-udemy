@@ -10,7 +10,7 @@ export function CreatePeople(
     lastName,
   };
 }
-export function squareOf(x: any) {
+export function squareOf(x: unknown) {
   if (typeof x === 'number') return x * x;
   return null;
 }
