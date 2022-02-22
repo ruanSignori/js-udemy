@@ -18,6 +18,10 @@ export class Enterprise {
       console.log(colaborator);
     }
   }
+
+  getNome(): string {
+    return this.name;
+  }
 }
 
 //Versão curta
