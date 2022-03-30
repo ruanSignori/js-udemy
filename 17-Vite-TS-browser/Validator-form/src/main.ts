@@ -1,2 +1,2 @@
-import './assets/ts/form-control';
-import './assets/css/index.css'
+import './assets/ts/video'
+
