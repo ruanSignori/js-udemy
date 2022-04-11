@@ -8,7 +8,7 @@ type FullName = {
 };
 
 type PeopleExtends = TypePeople & FullName;
-interface TipePeople2 extends TypePeople, FullName {}
+// interface TipePeople2 extends TypePeople, FullName {}
 
 // É possível implementar mais de um tipo
 export class People implements PeopleExtends {
