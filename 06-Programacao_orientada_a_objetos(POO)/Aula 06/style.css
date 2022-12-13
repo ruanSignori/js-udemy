@@ -1,0 +1,113 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1c1c27fa;
+    height: 100vh;
+    padding: 20px;
+}
+
+.create-account-txt {
+    text-align: left;
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 50px;
+    border-bottom: 2px solid white;
+}
+
+.create-account-txt > span {
+    margin-left: 120px;
+}
+
+section {
+    background-color: #ffffff;
+    max-width: 1200px;
+    min-height: 500px;
+    margin: 60px 0px 0px 120px;
+    padding: 20px;
+}
+
+input {
+    border-bottom: 2px solid rgb(13, 17, 29);
+    width: 350px;
+    text-indent: 8px;
+}
+
+input:hover {
+    transition: all 0.8 ease-in-out;
+    border-bottom: 2px solid blue;
+}
+
+.item-form {
+    margin: 25px 0px;
+    display: block;
+}
+
+label {
+    display: block;
+
+}
+
+.inline {
+   width: 400px;
+   display: inline-block;
+}
+
+input:focus {
+    outline: 0;
+}
+
+.level2 {
+    margin: 0px 50px;
+}
+
+button {
+    display: block;
+    margin: 35px 0px;
+    width: 200px;
+    height: 45px;
+    font-size: 1.1em
+}
+
+@media (max-width: 1420px){
+    section {
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .create-account-txt {
+        text-align: center;
+    }
+
+    .create-account-txt > span {
+        margin: 0px;
+    }
+
+    .level2 {
+        margin: 0px;
+    }
+}
+
+.texto-de-erro {
+    color: #db3e3ec0;
+    font-size: 0.8em;
+}
+
+
+@media (max-width: 800px){
+    body {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 450px){
+    .create-account-txt {
+        font-size: 2.4em;
+    }
+}
