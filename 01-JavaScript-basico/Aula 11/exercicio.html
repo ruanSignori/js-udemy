@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+<body>
+    <article>
+        <h1>Seu número é <span id='numero-titulo'></span></h1>
+        <div id='textos'>
+        </div>
+    </article>
+
+
+    <script>
+        const num = Number(prompt('Digite um número'))
+        let txt = document.getElementById('textos')
+
+        document.getElementById('numero-titulo').innerHTML = `${num}`
+        
+        txt.innerHTML += `Raiz quadrada: ${Math.sqrt(num)}<br>` 
+        txt.innerHTML += `${num} é inteiro: ${Number.isInteger(num)}<br>`
+        txt.innerHTML += `É um NaN: ${Number.isNaN(num)}<br>`
+        txt.innerHTML += `Arredondando para baixo: ${Math.floor(num)}<br>`
+        txt.innerHTML += `Arredondando para cima: ${Math.ceil(num)}<br>`
+        txt.innerHTML += `Com duas casas decimais: ${num.toFixed(2)}`
+    </script>
+</body>
+</html>
