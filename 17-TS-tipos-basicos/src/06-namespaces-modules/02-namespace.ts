@@ -7,7 +7,8 @@
 // "module": "AMD", ou
 // "module": "System", 
 
-console.log(MyNameSpace.SecundaryNameSpace.nameSpace2)
+console.log(MyNameSpace.SecundaryNameSpace.nameSpace2);
+console.log(nameSpace)
 
 /* 
   Você pode compilar esse arquivo em um arquivo js e executá-lo

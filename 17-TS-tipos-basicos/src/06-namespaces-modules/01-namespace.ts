@@ -18,3 +18,4 @@ namespace MyNameSpace {
 const newPerson = new MyNameSpace.PersonNameSpace('Abajsf');
 console.log(MyNameSpace.SecundaryNameSpace.nameSpace2)
 
+const nameSpace = 'Valor da namespace'
