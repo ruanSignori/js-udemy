@@ -1,13 +1,7 @@
-interface CartItem {
-  name: string;
-  price: number;
-}
-
-type OrderStatusCart = 'open' | 'closed';
+import { CartItem } from './protocols/cart-item';
 
 export class ShoppingCart {
   private readonly _items: CartItem[] = [];
-  private _orderStatus: OrderStatusCart = 'open';
 
   addItem(item: CartItem): void {
     this._items.push(item);
@@ -21,35 +15,12 @@ export class ShoppingCart {
     return this._items;
   }
 
-  get orderStatus(): Readonly<OrderStatusCart> {
-    return this._orderStatus;
-  }
-
   total(): number {
     const totalValue = +this._items
       .reduce((total, next) => total + next.price, 0)
       .toFixed(2);
 
     return totalValue;
-  }
-
-  checkout(): void {
-    if (this.isEmpty()) {
-      return console.log('Seu carrinho está vazio');
-    }
-
-    this._orderStatus = 'closed';
-    this.sendMessage('Seu pedido foi recebido');
-    this.saveOrder();
-    this.clearItems();
-  }
-
-  sendMessage(msg: string): void {
-    console.log('Mensagem enviada:', msg);
-  }
-
-  saveOrder(): void {
-    console.log('Pedido salvo com sucesso');
   }
 
   clearItems(): void {
@@ -61,13 +32,3 @@ export class ShoppingCart {
     return this._items.length === 0;
   }
 }
-
-const teste = new ShoppingCart();
-teste.addItem({ name: 'tesoura', price: 2.5 });
-teste.addItem({ name: 'lápis', price: 1.25 });
-teste.addItem({ name: 'bojo', price: 4.25 });
-teste.addItem({ name: 'caneca', price: 20 });
-teste.addItem({ name: 'pote', price: 7.45 });
-
-console.log(teste.orderStatus);
-teste.checkout();
