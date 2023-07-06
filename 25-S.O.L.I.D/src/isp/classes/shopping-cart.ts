@@ -26,7 +26,7 @@ export class ShoppingCart {
     return totalValue;
   }
 
-  totalWithDicount(): number {
+  totalWithDiscount(): number {
     return this.discount.calculate(this.total());
   }
 

@@ -1,3 +1,11 @@
+export interface CustomerOrder {
+  /**Retorna o nome do Solicitante */
+  getName(): string;
+
+  /**Retorna o n° de identificação do solicitante, CPF/CNPJ */
+  getIDN(): string;
+}
+
 export interface IndividualCustomerProtocol {
   firstName: string;
   lastName: string;

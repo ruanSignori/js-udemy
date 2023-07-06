@@ -2,6 +2,7 @@ import { Messaging } from '../services/messaging';
 import { Persistency } from './persistency';
 import { OrderStatusCart } from './interfaces/order-status';
 import { ShoppingCart } from './shopping-cart';
+import { CustomerOrder } from './interfaces/customer-protocol';
 
 export class Order {
   private _orderStatus: OrderStatusCart = 'open';
@@ -9,6 +10,7 @@ export class Order {
     private readonly cart: ShoppingCart,
     private readonly messaging: Messaging,
     private readonly persistency: Persistency,
+    private readonly customer: CustomerOrder,
   ) {}
 
   get orderStatus(): Readonly<OrderStatusCart> {
@@ -21,9 +23,13 @@ export class Order {
     }
 
     this.messaging.sendMessage(
-      `Seu pedido com total de R$${this.cart.total()}foi recebido`,
+      `Seu pedido com total de R$${this.cart.total()} foi recebido`,
     );
     this.persistency.saveOrder();
     this.cart.clearItems();
+
+    console.log(
+      `O cliente é: ${this.customer.getName()}, ${this.customer.getIDN()}`,
+    );
   }
 }

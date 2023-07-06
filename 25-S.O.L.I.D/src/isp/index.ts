@@ -4,19 +4,29 @@ import { Persistency } from './classes/persistency';
 import { Product } from './classes/product';
 import { ShoppingCart } from './classes/shopping-cart';
 import { NoDiscount } from './classes/discount';
+import { EnterpriseCustomer, IndividualCustomer } from './classes/customer';
 
 const noDiscount = new NoDiscount();
 const cart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
-const order = new Order(cart, messaging, persistency);
+const individualCustomer = new IndividualCustomer(
+  'Ruiz',
+  'eaeas',
+  '321.361.612.-75',
+);
+const enterpriseCustomer = new EnterpriseCustomer(
+  'Ferstock',
+  '039.293/0001-32',
+);
+const order = new Order(cart, messaging, persistency, enterpriseCustomer);
 
 cart.addItem(new Product('Tesoura', 2.15));
 cart.addItem(new Product('Caderno', 10.9));
 cart.addItem(new Product('Estojo', 12.3));
 cart.addItem(new Product('Borracha', 0.8));
 
-console.log(cart.total());
-console.log(cart.totalWithDicount());
-console.log(order.orderStatus);
+console.log('Total do pedido:', cart.total());
+console.log('Total com desconto:', cart.totalWithDiscount());
+console.log('Ordem do pedido:', order.orderStatus);
 order.checkout();
