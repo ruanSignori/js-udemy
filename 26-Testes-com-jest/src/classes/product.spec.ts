@@ -8,9 +8,9 @@ describe('Product', () => {
   // Após os testes, o jest limpará os seus mocks
   afterEach(() => jest.clearAllMocks());
 
-  it('should return undefined', () => {
-    const sut = createSut('Camiseta', 40.9);
+  it('should return name and price', () => {
+    const sut = createSut('Camiseta', 40.93);
     expect(sut).toHaveProperty('name', 'Camiseta');
-    expect(sut).toBeCloseTo(40.9);
+    expect(sut.price).toBeCloseTo(40.93);
   });
 });
