@@ -18,7 +18,7 @@ export class IndividualCustomer
   }
 
   getName(): string {
-    return this.firstName + this.lastName;
+    return this.firstName + ' ' + this.lastName;
   }
 
   getIDN(): string {
