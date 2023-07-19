@@ -21,6 +21,7 @@ export class Order {
     if (this.cart.isEmpty()) {
       return console.log('Seu carrinho está vazio');
     }
+    this._orderStatus = 'closed';
 
     this.messaging.sendMessage(
       `Seu pedido com total de R$${this.cart.total()} foi recebido`,
