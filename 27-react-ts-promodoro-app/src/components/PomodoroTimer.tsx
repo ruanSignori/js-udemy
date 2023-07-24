@@ -1,5 +1,6 @@
 "use client";
 
+import { secondsToTime } from "@/functions";
 import { useInterval } from "@/hooks";
 import { useState } from "react";
 
@@ -13,6 +14,11 @@ export function PomodoroTimer({ defaultPomodoroTimer }: PomodoroTimerProps) {
 
   useInterval(() => {
     setMainTime(mainTime - 1);
-  }, 0.1);
-  return <h2>Pomodoro {mainTime}</h2>;
+  }, 1);
+  return (
+    <div>
+      <h2>Pomodoro {secondsToTime(mainTime)}</h2>
+      <button className="btn">Eae</button>
+    </div>
+  );
 }
