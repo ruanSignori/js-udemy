@@ -6,11 +6,11 @@ import { useState } from "react";
 
 type PomodoroTimerProps = {
   /**O valor atribuído é convertido para segundos */
-  defaultPomodoroTimer: number;
+  pomodoroTimer: number;
 };
 
-export function PomodoroTimer({ defaultPomodoroTimer }: PomodoroTimerProps) {
-  const [mainTime, setMainTime] = useState(defaultPomodoroTimer);
+export function PomodoroTimer({ pomodoroTimer }: PomodoroTimerProps) {
+  const [mainTime, setMainTime] = useState(pomodoroTimer);
 
   useInterval(() => {
     setMainTime(mainTime - 1);
