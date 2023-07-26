@@ -2,7 +2,7 @@
 
 import { secondsToTime } from "@/functions";
 import { useInterval } from "@/hooks";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type PomodoroTimerProps = {
   /**Tempo em minutos que a atividade vai durar */
@@ -24,26 +24,65 @@ export function PomodoroTimer({
   const [timeCounting, setTimeCounting] = useState(false);
   const [working, setWorking] = useState(false);
   const [resting, setResting] = useState(false);
+  const [cyclesWork, setCyclesWork] = useState(
+    new Array(cycles - 1).fill(true)
+  );
+  const [completedCycles, setCompletedCyles] = useState(0);
+  const [fullWorkingTime, setWorkingTime] = useState(0);
+  const [numberPomodoro, setNumberPomodoro] = useState(0);
 
-  useEffect(() => {
-    if (working) document.body.classList.add("bg-green-300");
-    if (resting) document.body.classList.remove("bg-green-300");
-  }, [working]);
-
-  const handleConfigureWork = () => {
+  const handleConfigureWork = useCallback(() => {
     setTimeCounting(true);
     setWorking(true);
     setResting(false);
-    setMainTime(pomodoroTimer * 60);
-  };
+    setMainTime(pomodoroTimer);
+  }, [pomodoroTimer]);
 
-  const handleConfigureRest = (long: boolean) => {
-    long ? setMainTime(longRestTime) : setMainTime(shortRestTime);
+  const handleConfigureRest = useCallback(
+    (long: boolean) => {
+      setTimeCounting(true);
+      setWorking(false);
+      setResting(true);
 
-    setTimeCounting(true);
-    setWorking(false);
-    setResting(true);
-  };
+      long ? setMainTime(longRestTime) : setMainTime(shortRestTime * 60);
+    },
+    [longRestTime, shortRestTime]
+  );
+
+  useEffect(() => {
+    if (mainTime > 0) return;
+
+    if (working && cyclesWork.length > 0) {
+      handleConfigureRest(false);
+      cyclesWork.pop();
+    }
+
+    if (working && cyclesWork.length <= 0) {
+      handleConfigureRest(true);
+      setCyclesWork(new Array(cycles - 1).fill(true));
+      setCompletedCyles(completedCycles + 1);
+    }
+
+    if (working) {
+      document.body.classList.add("bg-green-300");
+      setNumberPomodoro(numberPomodoro + 1);
+    }
+
+    if (resting) {
+      document.body.classList.remove("bg-green-300");
+      handleConfigureWork();
+    }
+  }, [
+    working,
+    resting,
+    mainTime,
+    handleConfigureRest,
+    cyclesWork,
+    handleConfigureWork,
+    numberPomodoro,
+    cycles,
+    completedCycles,
+  ]);
 
   useInterval(
     () => {
@@ -71,6 +110,13 @@ export function PomodoroTimer({
             {timeCounting ? "Pausar" : "Retomar"}
           </button>
         )}
+      </div>
+      <div className="m-10 rounded bg-zinc-800 px-4 py-6 max-h-80 flex flex-col gap-3">
+        <p className="text-zinc-100">Ciclos conluídos: {completedCycles}</p>
+        <p className="text-zinc-100">
+          Horas trabalhadas: {secondsToTime(fullWorkingTime)}
+        </p>
+        <p className="text-zinc-100">Pomodoro concluídos: {numberPomodoro}</p>
       </div>
     </div>
   );

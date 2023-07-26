@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <PomodoroTimer
-        pomodoroTimer={3}
+        pomodoroTimer={0.1}
         cycles={3}
-        longRestTime={10}
-        shortRestTime={13}
+        longRestTime={1}
+        shortRestTime={1}
       />
     </main>
   );
