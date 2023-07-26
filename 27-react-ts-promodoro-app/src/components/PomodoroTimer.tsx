@@ -1,6 +1,6 @@
 "use client";
 
-import { secondsToTime } from "@/functions";
+import { secondsToMinutes, secondsToTime } from "@/functions";
 import { useInterval } from "@/hooks";
 import { useCallback, useEffect, useState } from "react";
 
@@ -20,7 +20,7 @@ export function PomodoroTimer({
   longRestTime,
   cycles,
 }: PomodoroTimerProps) {
-  const [mainTime, setMainTime] = useState(pomodoroTimer * 60);
+  const [mainTime, setMainTime] = useState(pomodoroTimer);
   const [timeCounting, setTimeCounting] = useState(false);
   const [working, setWorking] = useState(false);
   const [resting, setResting] = useState(false);
@@ -44,7 +44,7 @@ export function PomodoroTimer({
       setWorking(false);
       setResting(true);
 
-      long ? setMainTime(longRestTime) : setMainTime(shortRestTime * 60);
+      long ? setMainTime(longRestTime) : setMainTime(shortRestTime);
     },
     [longRestTime, shortRestTime]
   );
@@ -64,12 +64,10 @@ export function PomodoroTimer({
     }
 
     if (working) {
-      document.body.classList.add("bg-green-300");
       setNumberPomodoro(numberPomodoro + 1);
     }
 
     if (resting) {
-      document.body.classList.remove("bg-green-300");
       handleConfigureWork();
     }
   }, [
@@ -87,13 +85,16 @@ export function PomodoroTimer({
   useInterval(
     () => {
       setMainTime(mainTime - 1);
+      if (working) {
+        setWorkingTime(fullWorkingTime + 1);
+      }
     },
     timeCounting ? 1 : null
   );
   return (
     <div>
       <h2 className="text-center text-xl font-bold">Pomodoro</h2>
-      <p className="timer">{secondsToTime(mainTime)}</p>
+      <p className="timer">{secondsToMinutes(mainTime)}</p>
       <div className="flex justify-center gap-8">
         <button className="btn-green" onClick={() => handleConfigureWork()}>
           Começar
