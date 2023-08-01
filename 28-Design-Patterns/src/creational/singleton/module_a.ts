@@ -1,8 +1,8 @@
 import { MyDatabaseClassic } from './db/my-database-classic';
-import './module_b';
+import { myDbClassic as myDbClassicModuleB } from './module_b';
 
-const myDbClassic = MyDatabaseClassic.getIstance();
+const myDbClassic = MyDatabaseClassic._istance;
 myDbClassic.add({ name: 'ruan', age: 30 });
 myDbClassic.add({ name: 'FERNANDO', age: 30 });
 
-myDbClassic.show();
+console.log(myDbClassicModuleB === myDbClassic);
